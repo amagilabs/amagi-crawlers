@@ -1,0 +1,5 @@
+# One site per line. A bare domain means https://<domain>/.
+# A full URL checks that page instead of the home page. Text after # is ignored.
+anthropic.com
+theguardian.com
+nytimes.com/section/technology   # a section page, not the home page
