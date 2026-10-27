@@ -1,49 +1,49 @@
 site,url,bot,operator,use,robots_allowed,robots_rule,http,server_blocked,page_opt_outs,verdict,label,conflict,note,robots_txt,llms_txt,browser,vendor,checked_at
-shop.example,http://127.0.0.1:62136/,GPTBot,OpenAI,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,OAI-SearchBot,OpenAI,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,ChatGPT-User,OpenAI,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,ClaudeBot,Anthropic,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Claude-SearchBot,Anthropic,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Claude-User,Anthropic,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,PerplexityBot,Perplexity,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Perplexity-User,Perplexity,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Google-Extended,Google,training,no,Disallow: / (own group),-,,,robots,BLOCK robots,no,robots.txt token only; Google fetches with Googlebot,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Applebot-Extended,Apple,training,no,Disallow: / (own group),-,,,robots,BLOCK robots,no,robots.txt token only; Apple fetches with Applebot,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,CCBot,Common Crawl,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Bytespider,ByteDance,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Meta-ExternalAgent,Meta,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,Amazonbot,Amazon,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,DuckAssistBot,DuckDuckGo,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-shop.example,http://127.0.0.1:62136/,MistralAI-User,Mistral,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,GPTBot,OpenAI,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,OAI-SearchBot,OpenAI,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,ChatGPT-User,OpenAI,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,ClaudeBot,Anthropic,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Claude-SearchBot,Anthropic,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Claude-User,Anthropic,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,PerplexityBot,Perplexity,search,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Perplexity-User,Perplexity,user,yes,allowed (*),challenge,yes,,conflict,CONFLICT challenge,yes,"browser gets 200, this bot gets challenge (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Google-Extended,Google,training,yes,allowed (*),-,,,allow,ALLOW,no,robots.txt token only; Google fetches with Googlebot,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Applebot-Extended,Apple,training,yes,allowed (*),-,,,allow,ALLOW,no,robots.txt token only; Apple fetches with Applebot,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,CCBot,Common Crawl,training,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Bytespider,ByteDance,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Meta-ExternalAgent,Meta,training,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,Amazonbot,Amazon,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,DuckAssistBot,DuckDuckGo,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-news.example,http://127.0.0.1:62137/,MistralAI-User,Mistral,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,GPTBot,OpenAI,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta); noindex (header),allow-optout,ALLOW noai/noimageai/noindex,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,OAI-SearchBot,OpenAI,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,ChatGPT-User,OpenAI,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,ClaudeBot,Anthropic,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Claude-SearchBot,Anthropic,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Claude-User,Anthropic,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,PerplexityBot,Perplexity,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Perplexity-User,Perplexity,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Google-Extended,Google,training,yes,no robots.txt,-,,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,robots.txt token only; Google fetches with Googlebot,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Applebot-Extended,Apple,training,yes,no robots.txt,-,,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,robots.txt token only; Apple fetches with Applebot,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,CCBot,Common Crawl,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Bytespider,ByteDance,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Meta-ExternalAgent,Meta,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,Amazonbot,Amazon,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,DuckAssistBot,DuckDuckGo,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
-blog.example,http://127.0.0.1:62138/,MistralAI-User,Mistral,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:01:25Z
+shop.example,http://127.0.0.1:49377/,GPTBot,OpenAI,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,OAI-SearchBot,OpenAI,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,ChatGPT-User,OpenAI,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,ClaudeBot,Anthropic,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Claude-SearchBot,Anthropic,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Claude-User,Anthropic,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,PerplexityBot,Perplexity,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Perplexity-User,Perplexity,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Google-Extended,Google,training,no,Disallow: / (own group),-,,,robots,BLOCK robots,no,robots.txt token only; Google fetches with Googlebot,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Applebot-Extended,Apple,training,no,Disallow: / (own group),-,,,robots,BLOCK robots,no,robots.txt token only; Apple fetches with Applebot,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,CCBot,Common Crawl,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Bytespider,ByteDance,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Meta-ExternalAgent,Meta,training,no,Disallow: / (own group),200,no,,robots,BLOCK robots,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,Amazonbot,Amazon,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,DuckAssistBot,DuckDuckGo,search,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+shop.example,http://127.0.0.1:49377/,MistralAI-User,Mistral,user,yes,Allow: / (*),200,no,,allow,ALLOW,no,,200,yes,200,,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,GPTBot,OpenAI,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,OAI-SearchBot,OpenAI,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,ChatGPT-User,OpenAI,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,ClaudeBot,Anthropic,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Claude-SearchBot,Anthropic,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Claude-User,Anthropic,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,PerplexityBot,Perplexity,search,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Perplexity-User,Perplexity,user,yes,allowed (*),challenge,yes,,conflict,CONFLICT challenge,yes,"browser gets 200, this bot gets challenge (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Google-Extended,Google,training,yes,allowed (*),-,,,allow,ALLOW,no,robots.txt token only; Google fetches with Googlebot,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Applebot-Extended,Apple,training,yes,allowed (*),-,,,allow,ALLOW,no,robots.txt token only; Apple fetches with Applebot,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,CCBot,Common Crawl,training,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Bytespider,ByteDance,training,yes,allowed (*),403,yes,,conflict,CONFLICT 403,yes,"browser gets 200, this bot gets 403 (Cloudflare)",200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Meta-ExternalAgent,Meta,training,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,Amazonbot,Amazon,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,DuckAssistBot,DuckDuckGo,search,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+news.example,http://127.0.0.1:49378/,MistralAI-User,Mistral,user,yes,allowed (*),200,no,,allow,ALLOW,no,,200,no (HTML page),200,Cloudflare,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,GPTBot,OpenAI,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta); noindex (header),allow-optout,ALLOW noai/noimageai/noindex,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,OAI-SearchBot,OpenAI,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,ChatGPT-User,OpenAI,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,ClaudeBot,Anthropic,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Claude-SearchBot,Anthropic,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Claude-User,Anthropic,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,PerplexityBot,Perplexity,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Perplexity-User,Perplexity,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Google-Extended,Google,training,yes,no robots.txt,-,,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,robots.txt token only; Google fetches with Googlebot,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Applebot-Extended,Apple,training,yes,no robots.txt,-,,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,robots.txt token only; Apple fetches with Applebot,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,CCBot,Common Crawl,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Bytespider,ByteDance,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Meta-ExternalAgent,Meta,training,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,Amazonbot,Amazon,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,DuckAssistBot,DuckDuckGo,search,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
+blog.example,http://127.0.0.1:49379/,MistralAI-User,Mistral,user,yes,no robots.txt,200,no,noai (meta); noimageai (meta),allow-optout,ALLOW noai/noimageai,no,,404 (no robots.txt),no (404),200,,2026-10-27T19:23:07Z
