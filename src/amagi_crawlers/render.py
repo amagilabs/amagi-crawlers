@@ -15,11 +15,13 @@ def _cut(text: str, width: int) -> str:
 
 
 def counts(sites: List[SiteResult]) -> dict:
-    out = {"checks": 0, "allowed": 0, "robots": 0, "server": 0, "conflicts": 0, "unknown": 0}
+    out = {"checks": 0, "allowed": 0, "robots": 0, "server": 0, "conflicts": 0, "unknown": 0, "error": 0}
     for s in sites:
         for b in s.bots:
             out["checks"] += 1
-            if b.verdict in (UNKNOWN, ERROR):
+            if b.verdict == ERROR:
+                out["error"] += 1
+            elif b.verdict == UNKNOWN:
                 out["unknown"] += 1
             elif b.verdict == CONFLICT:
                 out["conflicts"] += 1
@@ -40,6 +42,8 @@ def summary_line(sites: List[SiteResult]) -> str:
             f"{c['conflicts']} conflict{'s' if c['conflicts'] != 1 else ''}")
     if c["unknown"]:
         line += f", {c['unknown']} unknown"
+    if c["error"]:
+        line += f", {c['error']} not checked (site unreachable)"
     return line + "."
 
 

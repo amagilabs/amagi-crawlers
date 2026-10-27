@@ -21,6 +21,8 @@ CONFLICT = "conflict"
 UNKNOWN = "unknown"   # robots.txt allows it, but the site blocks this checker's browser request too
 ERROR = "error"       # the site could not be reached at all
 
+DEAD = ("DNS lookup failed", "connection refused")  # fetch errors that make further requests pointless
+
 
 @dataclass
 class Target:
@@ -169,8 +171,11 @@ def check_site(target: Target, bots: List[Bot], *, timeout: float = 10.0, delay:
 
     robots_resp = get("/robots.txt", BROWSER_UA)
     robots, robots_status, disallow_all = robots_state(robots_resp)
-    page = get(target.path, BROWSER_UA)
-    llms = get("/llms.txt", BROWSER_UA)
+    if robots_resp.status is None and robots_resp.error in DEAD:
+        page = llms = robots_resp   # no point asking a host that does not resolve or answer
+    else:
+        page = get(target.path, BROWSER_UA)
+        llms = get("/llms.txt", BROWSER_UA)
 
     baseline_ok = page.status is not None and not _blocked(page)
     site = SiteResult(
