@@ -37,7 +37,7 @@ Googlebot and Applebot), so they get a robots.txt verdict and no HTTP check.
 ## How to use it
 
 1. Check it's installed: `amagi-crawlers --version` (else `pipx install amagi-crawlers`).
-2. Try it offline first if the user wants to see the output: `amagi-crawlers --demo`.
+2. To see sample output first, run it offline: `amagi-crawlers --demo`.
 3. One site or a few:
    ```
    amagi-crawlers example.com
