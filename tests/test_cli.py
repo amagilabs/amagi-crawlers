@@ -65,6 +65,11 @@ def test_bad_numbers_are_usage_errors(capsys):
     assert main(["--demo", "--workers", "0"]) == 2
 
 
+def test_bad_path_is_a_usage_error(capsys):
+    assert main(["example.com", "--path", "C:/Program Files/Git/pricing"]) == 2
+    assert "must start with /" in capsys.readouterr().err
+
+
 def test_all_sites_unreachable_exits_2(dead_url, capsys):
     assert main([dead_url, "--bots", "GPTBot"]) == 2
     out = capsys.readouterr().out

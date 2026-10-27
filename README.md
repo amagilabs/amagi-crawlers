@@ -143,7 +143,7 @@ a spreadsheet or a diff between runs.
 | `BLOCK robots` | robots.txt disallows the bot |
 | `BLOCK robots+403` | robots.txt disallows it and the server refuses it as well |
 | `CONFLICT 403` / `CONFLICT challenge` | robots.txt allows it, a browser gets through, the bot gets a 403, a challenge page or a dropped connection |
-| `UNKNOWN` | robots.txt allows it, but the site blocks this checker's browser request too, so a bot-specific block can't be told apart |
+| `UNKNOWN` | robots.txt allows it, but the site blocks this checker's browser request too, so a bot-specific block can't be told apart. A page that returns 404 to the browser also gives `UNKNOWN` |
 | `ERROR` | The site could not be reached |
 
 The `USE` column says what the operator uses the bot for: `training` (collecting data for

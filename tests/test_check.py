@@ -1,3 +1,5 @@
+import pytest
+
 from amagi_crawlers.bots import BOTS, BY_TOKEN, select
 from amagi_crawlers.check import (ALLOW, BOTH, CONFLICT, ERROR, OPT_OUT, ROBOTS, UNKNOWN, Target,
                                   check_site, verdict_for)
@@ -20,6 +22,14 @@ def test_target_parse():
     t = Target.parse("http://127.0.0.1:8080/blog/post?x=1")
     assert (t.label, t.base, t.path) == ("127.0.0.1:8080", "http://127.0.0.1:8080", "/blog/post?x=1")
     assert Target.parse("example.com/blog", path="/").path == "/"
+    assert Target.parse("example.com", path="/my page").path == "/my%20page"
+
+
+def test_path_must_start_with_slash():
+    with pytest.raises(ValueError, match="MSYS_NO_PATHCONV"):
+        Target.parse("example.com", path="C:/Program Files/Git/pricing")
+    with pytest.raises(ValueError, match="must start with /"):
+        Target.parse("example.com", path="pricing")
 
 
 def test_verdict_table():
@@ -176,3 +186,20 @@ def test_catalog_is_consistent():
             assert b.source == "token-only"
         else:
             assert b.token.lower() in b.ua.lower()
+
+
+def test_missing_page_is_unknown_with_a_not_found_note(serve):
+    def route(path, ua):
+        if path == "/robots.txt":
+            return 200, TEXT, "User-agent: *\nAllow: /\n"
+        return 404, HTML, "<html>not here</html>"
+    site = run(serve(route).url + "/gone", "GPTBot")
+    assert site.page_missing and not site.baseline_ok
+    assert site.bots[0].verdict == UNKNOWN
+    assert site.bots[0].note == "page not found (browser gets 404); check a page that exists"
+
+
+def test_bad_url_is_an_error_not_a_crash():
+    from amagi_crawlers.fetch import fetch
+    resp = fetch("http://127.0.0.1:9/a b", "x", timeout=2)  # http.client.InvalidURL
+    assert resp.status is None and "control characters" in resp.error

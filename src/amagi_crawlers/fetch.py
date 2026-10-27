@@ -2,6 +2,7 @@
 agent, and so a block on a redirect target is seen. Stdlib only."""
 from __future__ import annotations
 
+import http.client
 import socket
 import ssl
 import urllib.error
@@ -87,14 +88,14 @@ def fetch(url: str, user_agent: str, timeout: float = 10.0,
             resp = _OPENER.open(req, timeout=timeout)
         except urllib.error.HTTPError as err:
             resp = err
-        except (urllib.error.URLError, OSError, ValueError) as err:
+        except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError) as err:
             return Response(current, None, error=_describe(err), redirects=redirects)
         try:
             status = resp.getcode() if hasattr(resp, "getcode") else resp.code
             headers = [(k.lower(), v) for k, v in (resp.headers.items() if resp.headers else [])]
             try:
                 body = resp.read(max_bytes)
-            except (OSError, ValueError, AttributeError) as err:
+            except (http.client.HTTPException, OSError, ValueError, AttributeError) as err:
                 return Response(current, status, headers, b"", _describe(err), redirects)
         finally:
             try:

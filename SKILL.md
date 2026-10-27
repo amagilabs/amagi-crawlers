@@ -28,7 +28,7 @@ Each bot gets one verdict:
 | `BLOCK robots` | robots.txt disallows it |
 | `BLOCK robots+403` | robots.txt disallows it and the server refuses it too |
 | `CONFLICT 403` / `CONFLICT challenge` | robots.txt allows it, the server refuses it, a browser gets through |
-| `UNKNOWN` | robots.txt allows it, but the site also blocks the browser baseline, so a bot-specific block can't be told apart |
+| `UNKNOWN` | robots.txt allows it, but the site also blocks the browser baseline, so a bot-specific block can't be told apart (or the page returns 404; check a page that exists) |
 | `ERROR` | the site could not be reached |
 
 `Google-Extended` and `Applebot-Extended` are robots.txt tokens only (Google and Apple fetch with

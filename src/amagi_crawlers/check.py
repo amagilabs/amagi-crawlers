@@ -5,7 +5,7 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Callable, List, Optional
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import quote, urlsplit, urlunsplit
 
 from . import signals
 from .bots import BROWSER_UA, Bot
@@ -42,7 +42,10 @@ class Target:
         if parts.query:
             given += "?" + parts.query
         base = urlunsplit((parts.scheme.lower(), parts.netloc.lower(), "", "", ""))
-        return cls(parts.netloc.lower(), base, path or given)
+        if path is not None and not path.startswith("/"):
+            hint = " (Git Bash rewrote it; set MSYS_NO_PATHCONV=1)" if path[1:3] == ":/" else ""
+            raise ValueError(f"--path must start with /, got {path!r}{hint}")
+        return cls(parts.netloc.lower(), base, quote(path or given, safe="/?&=%:@!$'()*+,;~#"))
 
     def url(self, path: str) -> str:
         return self.base + path
@@ -86,6 +89,11 @@ class SiteResult:
     @property
     def conflicts(self) -> List[BotResult]:
         return [b for b in self.bots if b.conflict]
+
+    @property
+    def page_missing(self) -> bool:
+        """The browser baseline got 404/410: the page is gone, not blocked."""
+        return self.baseline in ("404", "410")
 
 
 def _http_summary(resp: Response) -> str:
@@ -209,6 +217,11 @@ def check_site(target: Target, bots: List[Bot], *, timeout: float = 10.0, delay:
                 if server_blocked:
                     v = signals.vendor(resp) or site.vendor
                     note = f"browser gets {site.baseline}, this bot gets {http}" + (f" ({v})" if v else "")
+            elif site.page_missing:
+                server_blocked = None
+                note = f"page not found (browser gets {site.baseline}); check a page that exists"
+                if http != site.baseline:
+                    note += f"; this bot gets {http}"
             else:
                 server_blocked = None
                 note = f"the site blocks this checker too (browser gets {site.baseline})"

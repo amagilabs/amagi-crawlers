@@ -37,7 +37,7 @@ def counts(sites: List[SiteResult]) -> dict:
 def summary_line(sites: List[SiteResult]) -> str:
     c = counts(sites)
     n = len(sites)
-    line = (f"{n} site{'s' if n != 1 else ''}, {c['checks']} bot checks: {c['allowed']} allowed, "
+    line = (f"{n} site{'s' if n != 1 else ''}, {c['checks']} bot check{'s' if c['checks'] != 1 else ''}: {c['allowed']} allowed, "
             f"{c['robots']} blocked by robots.txt, {c['server']} refused by the server, "
             f"{c['conflicts']} conflict{'s' if c['conflicts'] != 1 else ''}")
     if c["unknown"]:
@@ -58,7 +58,10 @@ def text(sites: List[SiteResult]) -> str:
         tail = f" ({s.vendor})" if s.vendor else ""
         out.append(f"  robots.txt {s.robots_status} | llms.txt {s.llms_txt} | browser {s.baseline}{tail}"
                    + (" | tdm-reservation 1" if s.tdm_reserved else ""))
-        if not s.baseline_ok:
+        if s.page_missing:
+            out.append(f"  note: the page returns {s.baseline} to a plain browser request too, so bot results are"
+                       " UNKNOWN; check a page that exists")
+        elif not s.baseline_ok:
             out.append("  note: the site also blocks a plain browser request from this checker, so a refused bot"
                        " is UNKNOWN, not a conflict")
         out.append(f"  {'BOT':<18} {'USE':<9} {'ROBOTS.TXT':<30} {'HTTP':<10} VERDICT")
@@ -134,7 +137,7 @@ def markdown(sites: List[SiteResult]) -> str:
             "(403, a challenge page, or a dropped connection) while a browser gets through. "
             "ALLOW noai/noindex = allowed, but the page opts out with an X-Robots-Tag header or robots meta tag. "
             "UNKNOWN = robots.txt allows it, but the site also blocks a plain browser request from this checker, "
-            "so a bot-specific block cannot be told apart. ERROR = the site could not be reached.",
+            "so a bot-specific block cannot be told apart (or the page itself is missing). ERROR = the site could not be reached.",
             ""]
     conflicts = [(s, b) for s in sites for b in s.conflicts]
     if conflicts:
