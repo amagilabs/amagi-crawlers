@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amagi-crawlers"
+version = "0.1.0"
+description = "Check which AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot...) can reach a list of sites: robots.txt, X-Robots-Tag, noai meta tags and the real HTTP answer to each bot's user agent."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "AmagiLabs (Amagisolutionsgroup, Inc.)", email = "dev@amagisolutionsgroup.com" }]
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["robots.txt", "ai-crawlers", "gptbot", "claudebot", "llms.txt", "seo", "waf", "cloudflare", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Topic :: Internet :: WWW/HTTP :: Site Management",
+]
+
+[project.urls]
+Homepage = "https://github.com/amagilabs/amagi-crawlers"
+
+[project.scripts]
+amagi-crawlers = "amagi_crawlers.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
