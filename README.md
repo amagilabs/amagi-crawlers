@@ -224,8 +224,6 @@ A star on GitHub helps other site owners find it.
 
 ## More from AmagiLabs
 
-- [amagi-dnssnap](https://github.com/amagilabs/amagi-dnssnap): snapshot a domain's DNS before a
-  migration and check that nothing went missing.
 - [amagi-watch](https://github.com/amagilabs/amagi-watch): turn a video URL into a transcript and
   key-frame index Claude can read.
 - [github.com/amagilabs](https://github.com/amagilabs): the rest of the AmagiLabs lab.
